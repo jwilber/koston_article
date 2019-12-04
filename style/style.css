@@ -1,104 +1,104 @@
 /* Fonts */
 /*==============*/
 @font-face {
-    font-family: LeagueGothicRegular;
-    src: url("../assets/leaguegothic-regular.otf") format("opentype");
+	font-family: LeagueGothicRegular;
+	src: url("../assets/leaguegothic-regular.otf") format("opentype");
 }
 
 @font-face {
-    font-family: LeagueGothicRegular;
-    font-weight: bold;
-    src: url("../assets/leaguegothic-regular.otf") format("opentype");
+	font-family: LeagueGothicRegular;
+	font-weight: bold;
+	src: url("../assets/leaguegothic-regular.otf") format("opentype");
 }
 
 
 /* #Reset & Basics (Inspired by E. Meyers)
 ================================================== */
-	html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
-		margin: 0;
-		padding: 0;
-		border: 0;
-		font-size: 100%;
-		font: inherit;
-		vertical-align: baseline; }
-	article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
-		display: block; }
-	body {
-		line-height: 1; }
-	ol, ul {
-		list-style: none; }
-	blockquote, q {
-		quotes: none; }
-	blockquote:before, blockquote:after,
-	q:before, q:after {
-		content: '';
-		content: none; }
-	table {
-		border-collapse: collapse;
-		border-spacing: 0; }
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline; }
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+	display: block; }
+body {
+	line-height: 1; }
+ol, ul {
+	list-style: none; }
+blockquote, q {
+	quotes: none; }
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none; }
+table {
+	border-collapse: collapse;
+	border-spacing: 0; }
 
 
 body {
-    font-family: Helvetica;
-    font-size: 1rem;
-    color: #262520;
+	font-family: Helvetica;
+	font-size: 1rem;
+	color: #262520;
 }
 
 .goth {
-	font-family: LeagueGothicRegular;
+font-family: LeagueGothicRegular;
 }
 
 a {
-    font-style: normal;
-    text-decoration: underline;
-    color: #000;
+	font-style: normal;
+	text-decoration: underline;
+	color: #000;
 }
 #main-wrapper {
-    max-width: 800px;
-    margin: 20px auto;
+	max-width: 800px;
+	margin: 20px auto;
 }
 
 #header {
-    margin-bottom: 10px;
+	margin-bottom: 10px;
 }
 
 
 .clr { clear: both; }
 .centered { text-align: center; }
 .hidden  { 
-    display: none; 
-    pointer-events: none;
+	display: none; 
+	pointer-events: none;
 }
 sup { 
-    vertical-align: text-top;
-    font-size: smaller;
+	vertical-align: text-top;
+	font-size: smaller;
 }
 
 /* Text
 ============================ */
 
 h1 {
-	font-size: 2.2rem;
-	font-style: uppercase;
-    margin: 0 0 6px 0px;
+font-size: 2.2rem;
+font-style: uppercase;
+	margin: 0 0 6px 0px;
 }
 h3 {
-	font-size: 1.1em;
-	/*padding: 3px 0px 5px 0;*/
-	padding-bottom: 0px;
-	font-style: normal;
-    margin-bottom: 0px;
-    margin-top: 10px;
-    font-family: LeagueGothicRegular;
+font-size: 1.1em;
+/*padding: 3px 0px 5px 0;*/
+padding-bottom: 0px;
+font-style: normal;
+	margin-bottom: 0px;
+	margin-top: 10px;
+	font-family: LeagueGothicRegular;
 }
 p {
-    margin-bottom: .5em;
+margin-bottom: .5em;
 }
 
 .desc {
-    font-style: italic;
-	font-size: 1em;
-	line-height: 1.4em;
+	font-style: italic;
+font-size: 1em;
+line-height: 1.4em;
 }
 
 
@@ -106,46 +106,41 @@ p {
 ============================ */
 
 #update {
-	margin: 20px 0px 0px 80px;
+margin: 20px auto;
+max-width: 654px;
 }
 
 .buttons {
 /*    float: left;
-    margin-right: 40px;
-    margin-bottom: 20px;*/
-    margin: auto;
+	margin-right: 40px;
+	margin-bottom: 20px;*/
+	margin: auto;
 }
 
 
 #racesimp {
-    display:flex;
-    justify-content:space-around;
-    flex-wrap: wrap;
-    /*flex-flow: row wrap;*/
+display: grid;
+grid-template: 1fr 1fr 1fr 1fr 1fr / 1fr 1fr 1fr;
 }
-
 #racesimp::after {
-  content: "";
-  flex: auto;
+	content: "";
+	/* flex: auto; */
+	margin: auto;
 }
-
 .button {
-	max-width: 17%;
-	padding: 2px 2px;
-	margin: 2px 2px;
-	height: 1.8em;
-	/*line-height: 1rem;*/
-	/*margin-right: 10px;*/
-    /*margin-bottom: 3px;*/
-	cursor: pointer;
-	text-align: center;
-	font-size: .7rem;
-	border: 2px solid #e0e0e0;
-	float: left;
-	-moz-border-radius: 10px;
-	border-radius: 2px;
-	background: #f7f6f1;
-	font-family: Helvetica;
+width: 15em;
+margin: 4px;
+height: 1.8em; 
+line-height: 1.8em;
+padding: 2px;
+cursor: pointer;
+text-align: center;
+font-size: .7rem;
+border: 2px solid #e0e0e0;
+-moz-border-radius: 10px;
+border-radius: 2px;
+background: #f7f6f1;
+font-family: Helvetica;
 }
 .button:hover {
 	background: #e0e0e0;
@@ -160,81 +155,82 @@ p {
 ============================ */
 
 #totalcnt {
-    margin: 20px 0 30px 0;
+	margin: 20px 0 30px 0;
 }
 #totalcnt #n {
-    font-size: 3.0em;
+	font-size: 3.0em;
 }
 #charts {
-    position: relative;
-    margin-top: 20px;
-    width: 100%;
+	/* position: relative; */
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	margin-top: 20px;
+	width: 100%;
 }
-
 .chartholder { 
-/*    margin: 0 0 20px 0;*/
-    float: left;
+		float: left;
 }
-.chartholder h3 {
-    height: 2.2em;
-    width: 95%;
-    display: block;
-}
+	.chartholder h3 {
+			height: 1.2em;
+			text-align: center;
+			width: 89%;
+	}
 
 
 .tick {
-	font-family: LeagueGothicRegular;
-	font-size: 2em;
+font-family: LeagueGothicRegular;
+font-size: 2em;
 }
 
 .y-axis path.domain {
-	opacity: 0;
+opacity: 0;
 }
 
 h1 {
-	font-family: LeagueGothicRegular;
+font-family: LeagueGothicRegular;
 }
 
 /*.tick line {
-	opacity: 0;
+opacity: 0;
 }*/
 
 
 /*Table*/
 /*=================*/
 table {
-  border-collapse: collapse;
-  border-spacing: 0;
-  width: 100%;
-  font-size: .8rem;
+border-collapse: collapse;
+border-spacing: 0;
+width: 100%;
+font-size: .8rem;
 }
 
 th {
-  padding: 4px;
-  border-bottom: 5px solid #d0d0d0;
-  text-align: right;
-  font-family: LeagueGothicRegular;
-  font-size: 1.2rem;
+padding: 4px;
+border-bottom: 5px solid #d0d0d0;
+text-align: right;
+font-family: LeagueGothicRegular;
+font-size: 1.2rem;
 }
 
 td {
-  padding: 4px;
-  border-bottom: 1px solid #d0d0d0;
-  text-align: right;
+padding: 4px;
+border-bottom: 1px solid #d0d0d0;
+text-align: right;
 }
 
 .left {
-	text-align: left;
+text-align: left;
 }
 
 .table {
-	overflow-x:auto;
-	padding-top: 2rem;
-	padding-bottom: 3rem;
+overflow-x:auto;
+padding-top: 2rem;
+padding-bottom: 3rem;
 }
 
 p {
-	max-width: 670px;
-	display: block;
-	margin: auto;
+max-width: 670px;
+display: block;
+margin: auto;
 }
