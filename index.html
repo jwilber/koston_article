@@ -35,8 +35,11 @@
          Koston is no different, and his skating has gone through its share of evolutions over the years:  
     </p>
 
-
-    <div id="obstacles"></div>
+    <div id="obstacles">
+      <div id="obstaclesChart">
+        <div id="obstaclesButtons"></div>
+      </div>
+    </div>
     <p>
         Early on, Koston.
         TODO add comments
@@ -178,7 +181,9 @@
             <div class="button" data-val="Nike_The_SB_Chronicles_Vol_3">Nike - The SB Chronicles Vol. 3</div>
             <div class="button" data-val="Girl_Yeah_Right">Girl - Yeah Right</div>
             <div class="button" data-val="eS_Menikmati" style="margin-right:0">éS - Menikmati</div>
-            <div class="clr"></div>
+            <!-- this is just here to line up the bottom row of buttons: -->
+            <div id="spaceFiller"></div>
+            <!-- <div class="clr"></div> -->
         </div>
     </div><!-- @end #update -->
     
@@ -275,5 +280,6 @@ var field_details = {
 
 
 <script type="text/javascript" src="js/barplot.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript" src="js/multiLine.js"></script>
 <script type="text/javascript" src="js/squarepie.js"></script>
