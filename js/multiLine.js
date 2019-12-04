@@ -66,7 +66,9 @@ d3.csv("data/odf.csv", function (data) {
   //make a button for each line in the graph
   const buttons = [];
   lines.forEach((line, index) => {
-    let button = $('#obstaclesButtons').append(`<button id="obsButton${index}" class="button obsButton">${lines[index].__data__.key}</button>`);
+    let text = lines[index].__data__.key;
+    text = text[0].toUpperCase() + text.slice(1);
+    let button = $('#obstaclesButtons').append(`<button id="obsButton${index}" class="button obsButton">${text}</button>`);
     buttons.push(button);
   });
 
