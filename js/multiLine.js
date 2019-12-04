@@ -72,12 +72,9 @@ d3.csv("data/odf.csv", function (data) {
 
   $('.obsButton').click( (event) => {
     //reset everything first
-    //todo: set each button's background to the corresponding line's color?
-    for (let i = 0; i < lines.length; i++) {
-      d3.select(lines[i]).style("stroke-width", "3");
-      $('.obsButton').css('background', '#f7f6f1');
-    }
+    lines.forEach((line, index) => d3.select(lines[index]).style("stroke-width", "3") );
 
+    $('.obsButton').css('background', '#f7f6f1');
     $(event.target).css('background', '#c9a111');
 
     //match clicked  button with corresponding line
