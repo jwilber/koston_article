@@ -75,7 +75,7 @@ d3.csv("data/odf.csv", function (data) {
 
   $('.obsButton').click((event) => {
     //reset everything first
-    lines.forEach((line, index) => d3.select(lines[index]).style("stroke-width", "3"));
+    lines.forEach((line, index) => d3.select(lines[index]).style("stroke-width", "2"));
     $('.obsButton').css('background', '#f7f6f1');
 
     $(event.target).css('background', '#c9a111');
