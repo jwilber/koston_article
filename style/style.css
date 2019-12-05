@@ -109,13 +109,6 @@ p {
 #obstacles {
 	position: relative;
 }
-	#obstaclesButtons {
-		display: flex;
-		justify-content: space-around;
-		flex-wrap: wrap;
-		max-width: 650px;
-		margin: auto;
-	}
 
 #update {
 	margin: 20px auto;
@@ -130,15 +123,12 @@ p {
 }
 
 
-#racesimp {
-	/* display: grid;
-	grid-template: 1fr 1fr 1fr 1fr 1fr / 1fr 1fr 1fr; */
+#racesimp, .buttonsBox {
 	max-width: 690px;
 	margin: auto;
 	display: flex;
 	justify-content: space-around;
 	flex-wrap: wrap;
-
 }
 	/* #racesimp::after {
 		content: "";

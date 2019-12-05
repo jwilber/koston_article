@@ -50,13 +50,14 @@ d3.csv("data/odf.csv", function (data) {
     .append("path")
     .attr("fill", "none")
     .attr("stroke", function (d) { return color(d.key) })
-    .attr("stroke-width", function (d) { return 3; })
+    .attr("stroke-width", function (d) { return 2; })
     .attr("stroke-chartWidth", 1.5)
     .attr("d", function (d) {
       lines.push(this);
       return d3.line()
         .x(function (d) { return x(d.year); })
         .y(function (d) { return y(+d.count); })
+        .curve(d3.curveCardinal.tension(0.5))
         (d.values)
     })
 
@@ -68,20 +69,21 @@ d3.csv("data/odf.csv", function (data) {
   lines.forEach((line, index) => {
     let text = lines[index].__data__.key;
     text = text[0].toUpperCase() + text.slice(1);
-    let button = $('#obstaclesButtons').append(`<button id="obsButton${index}" class="button obsButton">${text}</button>`);
+    let button = $('#obstaclesButtons').append(`<div id="obsButton${index}" class="button obsButton">${text}</div>`);
     buttons.push(button);
   });
 
-  $('.obsButton').click( (event) => {
+  $('.obsButton').click((event) => {
     //reset everything first
-    lines.forEach((line, index) => d3.select(lines[index]).style("stroke-width", "3") );
-
+    lines.forEach((line, index) => d3.select(lines[index]).style("stroke-width", "3"));
     $('.obsButton').css('background', '#f7f6f1');
-    $(event.target).css('background', '#c9a111');
 
+    $(event.target).css('background', '#c9a111');
     //match clicked  button with corresponding line
     let targetIndex = $(event.target).attr('id').slice(9);
-    d3.select(lines[targetIndex]).style("stroke-width", "11");
+    let targetLine = lines[targetIndex];
+    d3.select(targetLine).style("stroke-width", "9");
+
   });
 
 })
