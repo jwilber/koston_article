@@ -54,7 +54,7 @@ a {
 	color: #000;
 }
 #main-wrapper {
-	max-width: 800px;
+	max-width: 80%;
 	margin: 20px auto;
 }
 
@@ -116,21 +116,18 @@ p {
 }
 
 .buttons {
-/*float: left;
-	margin-right: 40px;
-	margin-bottom: 20px;*/
 	margin: auto;
 }
 
 
-#racesimp, .buttonsBox {
+#percentages, .buttonsBox {
 	max-width: 690px;
 	margin: auto;
 	display: flex;
 	justify-content: space-around;
 	flex-wrap: wrap;
 }
-	/* #racesimp::after {
+	/* #percentages::after {
 		content: "";
 		margin: auto;
 	} */
@@ -238,10 +235,19 @@ td {
 	overflow-x:auto;
 	padding-top: 2rem;
 	padding-bottom: 3rem;
+	max-width: 70%;
 }
 
 p {
 	max-width: 670px;
 	display: block;
 	margin: auto;
+}
+
+.grid-container {
+	display: flex;
+}
+
+.grid-item {
+	display: row;
 }

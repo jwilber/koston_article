@@ -116,9 +116,9 @@ d3.csv("data/kkoston.csv", type, function(error, data) {
     //
     // Group selection with buttons
     //
-    d3.selectAll("#racesimp .button").on("click", function() {
+    d3.selectAll("#percentages .button").on("click", function() {
         USER_VIDEO = d3.select(this).attr("data-val");
-        d3.select("#racesimp .current").classed("current", false);
+        d3.select("#percentages .current").classed("current", false);
         d3.select(this).classed("current", true);
         update();
     });

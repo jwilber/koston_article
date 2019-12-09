@@ -1,0 +1,17 @@
+count,trick,obstacle
+10,kickflip,Flatground
+9,switch fs tailslide,Flatground
+1,fsfs,Flatground
+9,switch bs flip,Rail
+8,bs flip,Rail
+8,bs 5050,Ledge
+8,switch bs 180,Ledge
+8,nollie bs flip,Ledge
+7,nollie flip,Rail
+6,fs flip,Flatground
+6,nollie bs heelflip,Stair
+6,switch fs flip,Stair
+5,bs noseslide,Stair
+5,bs heelflip,Stair
+5,fs nosegrind,Stair
+10,grinder,Stair

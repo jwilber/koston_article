@@ -8,8 +8,9 @@ const lines = []
 // append the svg object to the body of the page
 const obstaclesChart = d3.select("#obstaclesChart")
   .append("svg")
-  .attr("width", chartWidth + lineMargin.left + lineMargin.right)
-  .attr("height", chartHeight + lineMargin.top + lineMargin.bottom)
+  .attr("preserveAspectRatio", "xMinYMin meet")
+  .attr("viewBox", `0 0 ${(chartWidth + lineMargin.left + lineMargin.right)}
+    ${(chartHeight + lineMargin.top + lineMargin.bottom)}`)
   .append("g")
   .attr("transform",
     "translate(" + lineMargin.left + "," + lineMargin.top + ")");
@@ -19,12 +20,12 @@ d3.csv("data/odf.csv", function (data) {
 
   // group the data: I want to draw one line per group
   const sumstat = d3.nest() // nest function allows to group the calculation per level of a factor
-    .key(function (d) { return d.obstacle; })
+    .key(d => d.obstacle)
     .entries(data);
 
   // Add X axis --> it is a date format
   const x = d3.scaleLinear()
-    .domain(d3.extent(data, function (d) { return d.year; }))
+    .domain(d3.extent(data, d => d.year))
     .range([0, chartWidth]);
   obstaclesChart.append("g")
     .attr("transform", "translate(0," + chartHeight + ")")
@@ -32,13 +33,13 @@ d3.csv("data/odf.csv", function (data) {
 
   // Add Y axis
   const y = d3.scaleLinear()
-    .domain([0, d3.max(data, function (d) { return +d.count; })])
+    .domain([0, d3.max(data, d => +d.count)])
     .range([chartHeight, 0]);
   obstaclesChart.append("g")
     .call(d3.axisLeft(y));
 
   // color palette
-  const res = sumstat.map(function (d) { return d.key }) // list of group names
+  const res = sumstat.map(d => d.key) // list of group names
   const color = d3.scaleOrdinal()
     .domain(res)
     .range(['#e41a1c', '#377eb8', '#4daf4a', '#984ea3', '#ff7f00'])
@@ -49,14 +50,14 @@ d3.csv("data/odf.csv", function (data) {
     .enter()
     .append("path")
     .attr("fill", "none")
-    .attr("stroke", function (d) { return color(d.key) })
-    .attr("stroke-width", function (d) { return 2; })
+    .attr("stroke", d => color(d.key))
+    .attr("stroke-width", d => 2)
     .attr("stroke-chartWidth", 1.5)
     .attr("d", function (d) {
       lines.push(this);
       return d3.line()
-        .x(function (d) { return x(d.year); })
-        .y(function (d) { return y(+d.count); })
+        .x(d => x(d.year))
+        .y(d => y(+d.count))
         .curve(d3.curveCardinal.tension(0.5))
         (d.values)
     })
@@ -64,26 +65,26 @@ d3.csv("data/odf.csv", function (data) {
 
   //legend buttons
 
-  //make a button for each line in the graph
-  const buttons = [];
-  lines.forEach((line, index) => {
-    let text = lines[index].__data__.key;
-    text = text[0].toUpperCase() + text.slice(1);
-    let button = $('#obstaclesButtons').append(`<div id="obsButton${index}" class="button obsButton">${text}</div>`);
-    buttons.push(button);
-  });
+  // //make a button for each line in the graph
+  // const buttons = [];
+  // lines.forEach((line, index) => {
+  //   let text = lines[index].__data__.key;
+  //   text = text[0].toUpperCase() + text.slice(1);
+  //   let button = $('#obstaclesButtons').append(`<div id="obsButton${index}" class="button obsButton">${text}</div>`);
+  //   buttons.push(button);
+  // });
 
-  $('.obsButton').click((event) => {
-    //reset everything first
-    lines.forEach((line, index) => d3.select(lines[index]).style("stroke-width", "2"));
-    $('.obsButton').css('background', '#f7f6f1');
+  // $('.obsButton').click((event) => {
+  //   //reset everything first
+  //   lines.forEach((line, index) => d3.select(lines[index]).style("stroke-width", "2"));
+  //   $('.obsButton').css('background', '#f7f6f1');
 
-    $(event.target).css('background', '#c9a111');
-    //match clicked  button with corresponding line
-    let targetIndex = $(event.target).attr('id').slice(9);
-    let targetLine = lines[targetIndex];
-    d3.select(targetLine).style("stroke-width", "9");
+  //   $(event.target).css('background', '#c9a111');
+  //   //match clicked  button with corresponding line
+  //   let targetIndex = $(event.target).attr('id').slice(9);
+  //   let targetLine = lines[targetIndex];
+  //   d3.select(targetLine).style("stroke-width", "9");
 
-  });
+  // });
 
 })

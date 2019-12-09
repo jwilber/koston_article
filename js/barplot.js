@@ -4,10 +4,11 @@ const barMargin = {top: 20, right: 30, bottom: 40, left: 180},
     barHeight = 500 - barMargin.top - barMargin.bottom;
 
 // append the svg object to the body of the page
-var svg = d3.select("#my_dataviz")
+let svg = d3.select("#my_dataviz")
   .append("svg")
-    .attr("width", barWidth + barMargin.left + barMargin.right)
-    .attr("height", barHeight + barMargin.top + barMargin.bottom)
+    .attr("preserveAspectRatio", "xMinYMin meet")
+    .attr("viewBox", `0 0 ${(barWidth + barMargin.left + barMargin.right)}
+    ${(barHeight + barMargin.top + barMargin.bottom)}`)
   .append("g")
     .attr("transform",
           "translate(" + barMargin.left + "," + barMargin.top + ")");
@@ -16,20 +17,18 @@ var svg = d3.select("#my_dataviz")
 d3.csv("data/trickCounts.csv", function(data) {
 
   // Add X axis
-  var x = d3.scaleLinear()
+  let x = d3.scaleLinear()
     .domain([0, 10])
     .range([ 0, barWidth]);
 
-  var xAxis = d3.axisBottom(x).tickSize(0);
+  let xAxis = d3.axisBottom(x).tickSize(0);
   svg.append("g")
     .attr('class', 'x-axis')
     .attr("transform", "translate(0," + barHeight + ")")
-    .call(xAxis)
-    .selectAll("text")
-      .attr("transform", "translate(-5,0)rotate(-25)")
-      .style("text-anchor", "end")
+    .call(xAxis);
+
   // Y axis
-  var y = d3.scaleBand()
+  let y = d3.scaleBand()
     .range([ 0, barHeight])
     .domain(data.map(function(d) { return d.trick; }))
     .padding(.5);
