@@ -3,10 +3,8 @@ let lineMargin = { top: 10, right: 30, bottom: 30, left: 60 },
   chartWidth = 800 - lineMargin.left - lineMargin.right,
   chartHeight = 500 - lineMargin.top - lineMargin.bottom;
 
-const lines = []
-
 // append the svg object to the body of the page
-const obstaclesChart = d3.select("#obstaclesChart")
+const obstaclesChart = d3.select("#obstacles")
   .append("svg")
   .attr("preserveAspectRatio", "xMinYMin meet")
   .attr("viewBox", `0 0 ${(chartWidth + lineMargin.left + lineMargin.right)}
@@ -38,11 +36,13 @@ d3.csv("data/odf.csv", function (data) {
   obstaclesChart.append("g")
     .call(d3.axisLeft(y));
 
+  const keys = sumstat.map(d => d.key[0].toUpperCase() + d.key.slice(1))
+
   // color palette
-  const res = sumstat.map(d => d.key) // list of group names
   const color = d3.scaleOrdinal()
-    .domain(res)
-    .range(['#e41a1c', '#377eb8', '#4daf4a', '#984ea3', '#ff7f00'])
+    .domain(keys)
+    .range(['red', 'orange', 'green', 'blue', 'magenta', 'purple'])
+
 
   // Draw the line
   obstaclesChart.selectAll(".line")
@@ -51,40 +51,36 @@ d3.csv("data/odf.csv", function (data) {
     .append("path")
     .attr("fill", "none")
     .attr("stroke", d => color(d.key))
-    .attr("stroke-width", d => 2)
+    .attr("stroke-width", d => 3)
     .attr("stroke-chartWidth", 1.5)
     .attr("d", function (d) {
-      lines.push(this);
       return d3.line()
         .x(d => x(d.year))
         .y(d => y(+d.count))
         .curve(d3.curveCardinal.tension(0.5))
         (d.values)
-    })
+    });
 
+  // Add one dot in the legend for each key
+  obstaclesChart.selectAll("mydots")
+    .data(keys)
+    .enter()
+    .append("circle")
+    .attr("cx", chartWidth - chartWidth/5)
+    .attr("cy", function (d, i) { return 100 + i * 25 })
+    .attr("r", 5)
+    .style("fill", function (d) { return color(d) })
 
-  //legend buttons
-
-  // //make a button for each line in the graph
-  // const buttons = [];
-  // lines.forEach((line, index) => {
-  //   let text = lines[index].__data__.key;
-  //   text = text[0].toUpperCase() + text.slice(1);
-  //   let button = $('#obstaclesButtons').append(`<div id="obsButton${index}" class="button obsButton">${text}</div>`);
-  //   buttons.push(button);
-  // });
-
-  // $('.obsButton').click((event) => {
-  //   //reset everything first
-  //   lines.forEach((line, index) => d3.select(lines[index]).style("stroke-width", "2"));
-  //   $('.obsButton').css('background', '#f7f6f1');
-
-  //   $(event.target).css('background', '#c9a111');
-  //   //match clicked  button with corresponding line
-  //   let targetIndex = $(event.target).attr('id').slice(9);
-  //   let targetLine = lines[targetIndex];
-  //   d3.select(targetLine).style("stroke-width", "9");
-
-  // });
+  // Add the keys 
+  obstaclesChart.selectAll("mylabels")
+    .data(keys)
+    .enter()
+    .append("text")
+    .attr("x", chartWidth - chartWidth/5.3)
+    .attr("y", function (d, i) { return 100 + i * 25 })
+    .style("fill", function (d) { return color(d) })
+    .text(function (d) { return d })
+    .attr("text-anchor", "left")
+    .style("alignment-baseline", "middle")
 
 })
