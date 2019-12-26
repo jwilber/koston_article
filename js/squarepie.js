@@ -19,7 +19,7 @@ var margin = { top: 0, right: 0, bottom: 0, left: 6 },
 
 
 
-d3.csv("data/kkoston.csv", type, function(error, data) {
+d3.csv("data/kkoston2.csv", type, function(error, data) {
     if (error) throw error;
 
     

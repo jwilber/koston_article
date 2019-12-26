@@ -14,7 +14,7 @@ let svg = d3.select("#my_dataviz")
           "translate(" + barMargin.left + "," + barMargin.top + ")");
 
 // Parse the Data
-d3.csv("data/trickCounts.csv", function(data) {
+d3.csv("data/top_n_tricks.csv", function(data) {
 
   // Add X axis
   let x = d3.scaleLinear()
