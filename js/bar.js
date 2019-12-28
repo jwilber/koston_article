@@ -1,7 +1,7 @@
 // set the dimensions and margins of the graph
-const smallBarMargin = { top: 40, right: 30, bottom: 40, left: 100 };
-  smallBarWidth = 200 - smallBarMargin.left - smallBarMargin.right,
-  smallBarHeight = 200 - smallBarMargin.top - smallBarMargin.bottom;
+const smallBarMargin = { top: 40, right: 10, bottom: 40, left: 124 };
+  smallBarWidth = 270 - smallBarMargin.left - smallBarMargin.right,
+  smallBarHeight = 270 - smallBarMargin.top - smallBarMargin.bottom;
 
 let barplot = function (dataSource, data) {
 
@@ -37,13 +37,13 @@ let barplot = function (dataSource, data) {
   let y = d3.scaleBand()
     .range([0, smallBarHeight])
     .domain(data.map(function (d) { return d.trick; }))
-    .padding(.55);
+    .padding(.45);
 
   svg.append("g")
     .attr("class", "y-axis")
     .call(d3.axisLeft(y))
     .selectAll("text")
-    .style("font-size", ".7rem")
+    .style("font-size", ".9rem")
 
   // add bars
   d3.select(`#g${dataSource.div}`).selectAll("myRect")
@@ -76,7 +76,7 @@ barDict = [
   { 'div': 'bar5', 'subset': 'transition' },
 ];
 
-d3.csv("data/counts_by_obstacle.csv", data => {
+d3.csv("data/tricks_by_obstacle.csv", data => {
 
   barDict.forEach(d => {
     let obstacleData = data.filter(val => {

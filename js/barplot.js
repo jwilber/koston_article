@@ -14,7 +14,7 @@ let svg = d3.select("#my_dataviz")
           "translate(" + barMargin.left + "," + barMargin.top + ")");
 
 // Parse the Data
-d3.csv("data/top_n_tricks.csv", function(data) {
+d3.csv("data/top_tricks.csv", function(data) {
 
   // Add X axis
   let x = d3.scaleLinear()
@@ -31,7 +31,7 @@ d3.csv("data/top_n_tricks.csv", function(data) {
   let y = d3.scaleBand()
     .range([ 0, barHeight])
     .domain(data.map(function(d) { return d.trick; }))
-    .padding(.5);
+    .padding(.4);
   svg.append("g")
     .attr('class', 'y-axis')
     .call(d3.axisLeft(y))

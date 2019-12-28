@@ -14,7 +14,7 @@ const obstaclesChart = d3.select("#obstacles")
     "translate(" + lineMargin.left + "," + lineMargin.top + ")");
 
 //Read the data
-d3.csv("data/perc_df.csv", function (data) {
+d3.csv("data/timeseries.csv", function (data) {
 
   // group the data: I want to draw one line per group
   const sumstat = d3.nest() // nest function allows to group the calculation per level of a factor
@@ -50,6 +50,7 @@ d3.csv("data/perc_df.csv", function (data) {
     .data(sumstat)
     .enter()
     .append("path")
+    .attr('class', 'ts')
     .attr("fill", "none")
     .attr("stroke", d => color(d.key))
     .attr("stroke-width", d => 12)
@@ -62,29 +63,71 @@ d3.csv("data/perc_df.csv", function (data) {
         (d.values)
     });
 
-  // Add one dot in the legend for each key
-  obstaclesChart.selectAll("mydots")
-    .data(keys)
-    .enter()
-    .append("rect")
-    .attr("x", chartWidth - chartWidth/5)
-    .attr("y", function (d, i) { return 100 + i * 25 })
-    .attr("width", 15)
-    .attr("height", 10)
-    .style("fill", function (d) { return color(d) })
 
-  console.log('SUMSTAT', sumstat)
+  // interactivity
+    d3.selectAll('path.ts')
+      .on('mouseover', highlightLine);
+    d3.selectAll('path.ts')
+      .on('mouseout', deHighlightLine);
 
-  // Add the keys 
-  obstaclesChart.selectAll("mylabels")
-    .data(keys)
-    .enter()
-    .append("text")
-    .attr("x", chartWidth - chartWidth/5.8)
-    .attr("y", function (d, i) { return 100 + i * 23 })
-    .style("fill", function (d) { return color(d) })
-    .text(function (d) { return d })
-    .attr("text-anchor", "left")
-    .style("alignment-baseline", "middle")
+    function highlightLine(d) {
+      let col = d3.select(this).attr('stroke');
+      let sw = d3.select(this).attr('stroke-width');
+      // d3.select(this).attr('stroke', d3.rgb(col).brighter(.2));
+      d3.select(this).attr('stroke-width', 15);
+    };
+
+    function deHighlightLine(d) {
+      let col = d3.select(this).attr('class');
+      let sw = d3.select(this).attr('stroke-width');
+      // d3.select(this).attr('stroke', colDict[col]);
+      d3.select(this).attr('stroke-width', 12);
+    };
+
+const colDict = {Ledges: 'brown', Handrails: 'grey' , 'Stairs/Gaps': '#c9a111'}
+
+// legend
+var legend_keys = ["Ledges", "Handrails", "Stairs/Gaps"]
+
+var lineLegend = obstaclesChart.selectAll(".lineLegend")
+    .data(legend_keys)
+    .enter().append("g")
+    .attr("class","lineLegend")
+    .attr("transform", function (d,i) {
+            return "translate(" + (chartWidth - lineMargin.left) + "," + (i*20)+")";
+        });
+
+lineLegend.append("text").text(function (d) {return d;})
+    .attr("transform", "translate(15, 6)"); //align texts with boxes
+
+lineLegend.append("rect")
+    .attr("fill", d => colDict[d])
+    .attr("width", 12).attr('height', 5);
+
+
+  // // Add one dot in the legend for each key
+  // obstaclesChart.selectAll("mydots")
+  //   .data(keys)
+  //   .enter()
+  //   .append("rect")
+  //   .attr("x", chartWidth - chartWidth/5)
+  //   .attr("y", function (d, i) { return 100 + i * 25 })
+  //   .attr("width", 15)
+  //   .attr("height", 10)
+  //   .style("fill", function (d) { return color(d) })
+
+  // console.log('SUMSTAT', sumstat)
+
+  // // Add the keys 
+  // obstaclesChart.selectAll("mylabels")
+  //   .data(keys)
+  //   .enter()
+  //   .append("text")
+  //   .attr("x", chartWidth - chartWidth/5.8)
+  //   .attr("y", function (d, i) { return 100 + i * 23 })
+  //   .style("fill", function (d) { return color(d) })
+  //   .text(function (d) { return d })
+  //   .attr("text-anchor", "left")
+  //   .style("alignment-baseline", "middle")
 
 })
