@@ -263,3 +263,90 @@ opacity: 0;
 .x-axis {
 	font-size: .5rem;
 }
+
+/*bar chart multiples*/
+.some-page-wrapper {
+  display: flex;
+  margin: 15px;
+  max-width: 80%;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 1;
+}
+
+
+
+/*move felxbox*/
+/*.flexbox {
+  display: flex;
+  flex-direction: column;
+  background: #565656;
+  padding: 5px;
+  align-content: space-between;
+  justify-content: space-between;
+}
+
+.flexbox>div {
+  text-align: center;
+  padding: 20px 0;
+  margin: 5px;
+}
+
+.flexbox>.left {
+  background-color: #D30058;
+}
+
+.flexbox>.center {
+  background-color: #36ABE1;
+}
+
+.flexbox>.right {
+  background-color: #23B776;
+}
+
+@media(min-width:576px) {
+  .flexbox {
+    flex-flow: row wrap;
+  }
+  .flexbox>.left {
+    order: 1;
+    flex: 0.5;
+  }
+  .flexbox>.right {
+    order: 2;
+    flex: 0.5;
+  }
+  .flexbox>.center {
+    order: 3;
+    width: 100%;
+  }
+}
+
+@media(min-width:768px) {
+  .flexbox {
+    flex-flow: row nowrap;
+  }
+  .flexbox>div {
+    width: 33.33% !important;
+  }
+  .flexbox>.left {
+    order: 1;
+  }
+  .flexbox>.center {
+    order: 2;
+  }
+  .flexbox>.right {
+    order: 3;
+  }
+}*/
