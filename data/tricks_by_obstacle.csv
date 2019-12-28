@@ -1,0 +1,38 @@
+obstacle,trick,count
+transition,fs nosebluntslide,3
+transition,bs blunt bs 270 ,2
+transition,fs 180 to fakie 5-0 to fakie,2
+transition,fs nosebluntslide to fakie,2
+transition,switch fs feeble to regular,2
+rail,bs 5050,4
+rail,fs 5050,4
+rail,fs boardslide,4
+rail,nollie heelflip to bs noseslide,4
+rail,nollie to fs noseblunt,4
+rail,switch fs tailslide,4
+rail,bs boardslide,3
+rail,bs smith,3
+ledge,bs 5050,5
+ledge,switch fs tailslide,5
+ledge,bs bluntslide,4
+ledge,bs tailslide,4
+ledge,bs tailslide to fakie,4
+ledge,fs 180 to nosegrind,4
+ledge,bs noseslide,3
+ledge,bs noseslide 270,3
+gaps,switch bs 180,7
+gaps,switch bs flip,5
+gaps,switch heelflip,5
+gaps,kickflip,4
+gaps,fakie 360 flip,3
+gaps,nollie bs heelflip,3
+gaps,nollie flip,3
+gaps,switch varial heelflip,3
+flat,fs flip,5
+flat,nollie bs flip,5
+flat,nollie flip,4
+flat,switch flip,4
+flat,switch fs heelflip,4
+flat,bs flip,3
+flat,bs shuv-it,3
+flat,switch bs flip,3
