@@ -26,35 +26,46 @@
 
       <h1>Top Tricks</h1>
       <p>
-        Most iconic skaters have their trick: Andrew Reynolds has the frontside flip. Erik Ellington has the backside
-        bigspin. And Todd Falcon has the Falcon flip. While Koston obviously has a massive bag of tricks, very rarely do
-        you see him do the same trick twice. This is reflected in his top tricks, where no "favorite" exists. His most
-        popular trick, the kickflip, is done a mere ten times:
+        Our views of a particular skater are largely shaped by the tricks that they do, with many iconic skaters having their own sort of signature trick. Andrew Reynolds has the frontside flip. Erik Ellington has the backside bigspin. Todd Falcon has the Falcon flip (don't hate). Yet, despite being one of the most iconic skateboarders of all time, Koston has no obvious calling card when it comes to trick selection. He rarely repeats the same tricks. This is reflected in his top tricks, where no clear favorite exists, although switch heelflip and kickflip managed to claw their way to the top:
       </p>
       <!-- Create a div where the graph will take place -->
       <div id="my_dataviz"></div>
-      <p>
-        This lack-of-favorite is driven home even more when we compare the results to Greco's, who had less tricks done
-        overall (todo vs todo) yet had multiple 'favorite' tricks. despite having TODO less tricks overall, had a much
-        higher proportion of repeat tricks. On the other hand, Koston's most popular trick occurs a mere ten times If
-        anything, this speaks to the talents of Koston - the dude is so good and has such an arsenal of tricks at his
-        disposal that he doesn't need to repeart anything - he just does what he wants.
+      <p> 
+        Rather than doing a few tricks many times, Koston does many tricks with lower frequencies. 
+        <br><br>
+        This lack-of-favorite is driven home even more when we compare the results to Greco's, who  despite having done less tricks overall, had a much higher proportion of repeated tricks, with the highest occurring almost forty times. Koston's most popular trick, on the other hand, occurs a mere ten times. 
+        <br><br>
+        I think this reflects two main things. First, and most obvious, Koston is very good at skateboarding. He has a such a large number of diverse tricks for the simple fact that he can. Second, Koston puts a lot of thought into his video parts, and is conscious of the tricks he's done and will include in a given video part. 
       </p>
 
       <h1>Top Tricks By Obstacle</h1>
       <p>
-        Looking at things at a slightly more granular level, we can note the following:
+        We can break down Koston's trick selection to a <i>slightly</i> more granular level, and view the tricks he's done across different obstacles. Interestingly, five of his top eight flatground tricks involve a change of stance, something he often does in lines. In an amusing, almost comical token to Koston's skill: he does nollie heelflip noseslides as often as he does 50-50s on rails.
       </p>
-      <div id="grid-container">
+      <!-- <div id="grid-container">
         <div class="grid-item" id="bar1"></div>
         <div class="grid-item" id="bar2"></div>
         <div class="grid-item" id="bar3"></div>
         <div class="grid-item" id="bar4"></div>
+      </div> -->
+      <center>
+      <div class='some-page-wrapper'>
+        <div class='row'>
+          <div class='column' id="bar1">
+          </div>
+          <div class='column' id="bar2">
+          </div>
+          <div class='column' id="bar3">
+          </div>
+          <div class='column' id="bar4">
+          </div>
+        </div>
       </div>
-
+      </center>
       <h1>Obstacles Skated Over The Years</h1>
-
       <p>
+        Of course, part of Koston's greatness 
+
         Most skaters change the way they skate over time. Sometimes they get older and their bodies change. Sometimes
         they find a new way to enjoy skating. Other times they just get over it. Whatever, it's natural.
         <br><br>
@@ -70,6 +81,12 @@
       </p>
       <h1>Number of Tricks</h1>
       <p>
+        Koston has had a long and healthy career, and while his output as slowed over time, he still appears fairly often in videos. The videos included for this analysis are listed in the table below - they represent his core output, his career signature, so to speak.
+
+        In all but two videos, Menkimati and Chronicles, Koston has a larger number of tricks than clips, indicating that a large number of lines were filmed. (The reverse, having more clips than tricks, indicates multiple repeat angles).
+
+        The <i>% Distinct Tricks</i> column tells us the proportion of tricks in that video part that were unique. E.g., a video with a value of 100% will have no repeat tricks at all, so at most one kickflip, one boardslide, etc. A typical value for most skateboarders will likely fall around 30-60%. Koston, averages 90.7%. A simplified interpretation of this is that, when Koston does <i>any trick</i> in a video part (such as a flatground kickflip or 360 flip), there's less than a 10% chance, on average, that he'll do that same trick again in the video, <i>in any capacity</i>. This interpretation is a bit simplified - Koston has a few tricks he's more likely to repeat than others, but you get the gist: Koston doesn't repeat tricks much.
+
         Koston's skating has evolved over time. So too has his output. In terms of clips filmed, Koston's best part is
         ___ and his weakest is ___. Looking at the overall number of tricks, we see his best part is ____, and that his
         output, for the most part, increase over time, with the 'peak' of his career occurring between todo 2000-20000.
@@ -87,92 +104,97 @@
             <th class="left">Video</th>
             <th># Clips</th>
             <th># Tricks</th>
-            <th># Distinct Tricks</th>
+            <th>% Distinct Tricks</th>
           </tr>
           <tr>
             <td class="left">101 - WWII Report (1992)</td>
-            <td>50</td>
-            <td>50</td>
-            <td>50</td>
+            <td>24</td>
+            <td>33</td>
+            <td>91.0</td>
           </tr>
           <tr>
             <td class="left">Union - Right to Skate (1992)</td>
-            <td>50</td>
-            <td>50</td>
-            <td>50</td>
+            <td>24</td>
+            <td>30</td>
+            <td>97.0</td>
           </tr>
           <tr>
             <td class="left">H-Street - Next Generation (1992)</td>
-            <td>50</td>
-            <td>94</td>
-            <td>94</td>
+            <td>90</td>
+            <td>105</td>
+            <td>90.0</td>
           </tr>
           <tr>
             <td class="left">Girl - Goldfish (1994)</td>
-            <td>50</td>
-            <td>67</td>
-            <td>67</td>
+            <td>20</td>
+            <td>55</td>
+            <td>73.0</td>
           </tr>
           <tr>
             <td class="left">101 - Falling Down (1993)</td>
-            <td>50</td>
-            <td>67</td>
-            <td>67</td>
+            <td>37</td>
+            <td>48</td>
+            <td>92.0</td>
 
           <tr>
             <td class="left">Etnies - High 5 (1995)</td>
-            <td>50</td>
-            <td>67</td>
-            <td>67</td>
+            <td>7</td>
+            <td>12</td>
+            <td>100.0</td>
           </tr>
           <tr>
             <td class="left">Transworld - Uno (1996)</td>
-            <td>50</td>
-            <td>67</td>
-            <td>67</td>
+            <td>15</td>
+            <td>17</td>
+            <td>82.0</td>
           </tr>
           <tr>
             <td class="left">Girl - Mouse (1996)</td>
-            <td>50</td>
-            <td>67</td>
-            <td>67</td>
+            <td>43</td>
+            <td>61</td>
+            <td>87.0</td>
           </tr>
           <tr>
             <td class="left">Chocolate - The Chocolate Tour (1999)</td>
-            <td>50</td>
-            <td>67</td>
-            <td>67</td>
-          </tr>
-          <tr>
-            <td class="left">Lakai - Fully Flared (2007)</td>
-            <td>50</td>
-            <td>67</td>
-            <td>67</td>
-          </tr>
-          <tr>
-            <td class="left">Nike - The SB Chronicles Vol. 3 (2015)</td>
-            <td>50</td>
-            <td>67</td>
-            <td>67</td>
-          </tr>
-          <tr>
-            <td class="left">Girl - Yeah Right (2003)</td>
-            <td>50</td>
-            <td>67</td>
-            <td>67</td>
+            <td>18</td>
+            <td>21</td>
+            <td>100.0</td>
           </tr>
           <tr>
             <td class="left">éS - Menikmati (2000)</td>
-            <td>50</td>
-            <td>67</td>
-            <td>67</td>
+            <td>54</td>
+            <td>51</td>
+            <td>88.0</td>
           </tr>
+          <tr>
+            <td class="left">Chomp On This (2002)</td>
+            <td>42</td>
+            <td>54</td>
+            <td>93.0</td>
+          </tr>
+          <tr>
+            <td class="left">Girl - Yeah Right (2003)</td>
+            <td>74</td>
+            <td>78</td>
+            <td>86.0</td>
+          </tr>
+          <tr>
+            <td class="left">Lakai - Fully Flared (2007)</td>
+            <td>48</td>
+            <td>53</td>
+            <td>98.0</td>
           </tr>
           <tr>
             <td class="left">Girl - Pretty Sweet (2012)</td>
-            <td>50</td>
-            <td>67</td>
-            <td>67</td>
+            <td>8</td>
+            <td>11</td>
+            <td>93.0</td>
+          </tr>
+          <tr>
+            <td class="left">Nike - The SB Chronicles Vol. 3 (2015)</td>
+            <td>36</td>
+            <td>34</td>
+            <td>91.0</td>
           </tr>
         </table>
       </div>
@@ -181,17 +203,8 @@
       <h1 class="centered goth">Koston: Percentages</h1>
 
       <p>
-        I have been manipulating some data frames, but unfortunately I have two percentage columns, one in the format
-        '61.72' and the other '0.62'.
-
-        I want to just divide the column with the percentages in the '61.72' format by 100 then round it to 2.dp so it
-        is consistent with the data frame.
-
-        Is there an easy way of doing this?
-
-        My data frame has two columns, one called 'A' and the other 'B', I want to format 'B'.
-
-        Many thanks!
+        To get a better idea of the diversity of Koston's career, we can look at a per-video breakdown of what he does. Each square below is made up of one-hundred points, with each point representing one percent. In this manner, we can compare how the composition of tricks in each of Koston's videos differs.
+        In general, Koston has a slight preference for bs tricks over fs tricks. Surprisingly, the video with the highest percentage of slow-motion tricks was <i>not</i> Fully Flared, it was Menikmati. Thanks for holding back, Ty.
       </p>
       <!-- <p class="desc centered">Select video part.</p> -->
       <div id="update">
@@ -212,6 +225,7 @@
           <div class="button" data-val="Nike_The_SB_Chronicles_Vol_3">Nike - The SB Chronicles Vol. 3</div>
           <div class="button" data-val="Girl_Yeah_Right">Girl - Yeah Right</div>
           <div class="button" data-val="eS_Menikmati" style="margin-right:0">éS - Menikmati</div>
+          <div class="button" data-val="Chomp_On_This" style="margin-right:0">Chomp On This</div>
           <!-- this is just here to line up the bottom row of buttons: -->
           <div id="spaceFiller"></div>
           <!-- <div class="clr"></div> -->
@@ -265,7 +279,12 @@
         Many thanks!
       </p>
 
-      <h1>Best Part?</h1>
+      <h1>Data & Methodology</h1>
+      <p>
+        Skate video information was hand-logged from the full-length video parts of Eric Koston.  
+
+        Although Koston has appeared in a multitude of skate videos over time, we've limited the set of data to include only his full-length video parts. These are more in-line with what people consider when they look at the "career" of the skater.
+      </p>
       <p>
         I have been manipulating some data frames, but unfortunately I have two percentage columns, one in the format
         '61.72' and the other '0.62'.
@@ -300,7 +319,6 @@
 <script id="field_details">
   var field_details = {
     "perc_switch": { desc: "Switch Tricks", color: "#c9a111" },
-    "perc_distinct": { desc: "Distinct Tricks", color: "#c9a111" },
     "perc_slowmo": { desc: "Slowmo Tricks", color: "#c9a111" },
     "perc_fs": { desc: "FS Tricks", color: "#c9a111" },
     "perc_bs": { desc: "BS Tricks", color: "#c9a111" },
